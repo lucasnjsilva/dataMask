@@ -1,9 +1,13 @@
-export function Date(value) {
+export function NewDate(value) {
   let i = 0;
   const v = value.toString();
   const pattern = '##/##/####';
-
-  return pattern.replace(/#/g, () => v[i++] || '');
+  
+  if (Number.isInteger(value) && v.length === 8) {
+    return pattern.replace(/#/g, () => v[i++] || '');
+  } else {
+    return "Invalid type or number.";
+  }
 }
 
 export function Phone(value) {
@@ -11,7 +15,11 @@ export function Phone(value) {
   const v = value.toString();
   const pattern = '(##) #####-####';
 
-  return pattern.replace(/#/g, () => v[i++] || '');
+  if (Number.isInteger(value) && v.length === 11) {
+    return pattern.replace(/#/g, () => v[i++] || '');
+  } else {
+    return "Invalid type or number.";
+  }
 }
 
 export function CPF(value) {
@@ -19,7 +27,11 @@ export function CPF(value) {
   const v = value.toString();
   const pattern = '###.###.###-##';
 
-  return pattern.replace(/#/g, () => v[i++] || '');
+  if (Number.isInteger(value) && v.length === 11) {
+    return pattern.replace(/#/g, () => v[i++] || '');
+  } else {
+    return "Invalid type or number.";
+  }
 }
 
 export function RG(value) {
